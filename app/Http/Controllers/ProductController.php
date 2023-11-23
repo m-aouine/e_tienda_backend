@@ -15,21 +15,34 @@ class ProductController extends Controller
     public function mostrar()
     {
 
+$user = Auth::user();
     $products= Product::all();
     return response()->json([
        'products' => $products,
+       'user' => $user,
+
    ]);
 }
 
 
+public function cotizar(Request $request)
+{
+   
+    $requestData = $request->all();
 
+    $totalPrice = 0;
+    foreach ($requestData['order']['items'] as $item) {
+        $totalPrice += $item['totalPrice'];
+    }
 
-    public function cotizar(Request $request)
-     {
-     return response()->json([
-        'message' => 'Cotizando',
+    return response()->json([
+        'message' => 'Data received successfully',
+        'data' => $requestData,
+        'totalPrice' => $totalPrice,
     ]);
 }
+
+
 
 }
 
