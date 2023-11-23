@@ -5,12 +5,13 @@ Esta es la carpeta que contiene la Api con PHP, el framework Laravel 10 y los to
 
 base_url :http://127.0.0.1:8000/api/
 
-Public routes
+Rutas públicas
 
 "/register" - Post method
 "/login"    -post method
 
-Protected routes with sanctum Middleware
+
+Rutas protegidas con sanctum Middleware
 
 "/mostrar" - Get method
 "/cotizar"  Post method
